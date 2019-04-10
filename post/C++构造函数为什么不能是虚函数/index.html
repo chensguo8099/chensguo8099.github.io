@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>C++继承构造原则 | 疯狂刷题</title>
+    <title>C++构造函数为什么不能是虚函数 | 疯狂刷题</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="MiseryJerry">
     
-    <meta name="description" content="构造方法用来初始化类的对象，与父类的其它成员不同，它不能被子类继承（子类可以继承父类所有的成员变量和成员方法，但不继承父类的构造方法）。因此，在创建子类对象时，为了初始化从父类继承来的数据成员，系统需要调用其父类的构造方法。如果没有显式的构造函数，编译器会给一个默认的构造函数，并且该默认的构造函数仅">
+    <meta name="description" content="原因1:从存储空间角度这里你需要知道一个概念，那就是虚函数表vtbl，每一个拥有虚成员函数的类都有一个指向虚函数表的指针。对象通过虚函数表里存储的虚函数地址来调用虚函数。那虚函数表指针是什么时候初始化的呢？当然是构造函数。当我们通过new来创建一个对象的时候，第一步是申请需要的内存，第二步就是调用构">
     
     
     
@@ -69,31 +69,23 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/post/C++继承构造原则/" title="C++继承构造原则" itemprop="url">C++继承构造原则</a>
+      <a href="/post/C++构造函数为什么不能是虚函数/" title="C++构造函数为什么不能是虚函数" itemprop="url">C++构造函数为什么不能是虚函数</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://chensguo8099.github.io" title="MiseryJerry">MiseryJerry</a>
     </p>
   <p class="article-time">
-    <time datetime="2019-04-10T11:10:43.000Z" itemprop="datePublished">2019-04-10</time>
-    更新日期:<time datetime="2019-04-10T11:51:53.170Z" itemprop="dateModified">2019-04-10</time>
+    <time datetime="2019-04-10T11:54:36.000Z" itemprop="datePublished">2019-04-10</time>
+    更新日期:<time datetime="2019-04-10T11:57:48.706Z" itemprop="dateModified">2019-04-10</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		
-		<p>构造方法用来初始化类的对象，与父类的其它成员不同，它不能被子类继承（子类可以继承父类所有的成员变量和成员方法，但不继承父类的构造方法）。因此，在创建子类对象时，为了初始化从父类继承来的数据成员，系统需要调用其父类的构造方法。如果没有显式的构造函数，编译器会给一个默认的构造函数，并且该默认的构造函数仅仅在没有显式地声明构造函数情况下创建。</p>
-<p>构造原则如下：</p>
-<ol>
-<li>如果子类没有定义构造方法，则调用父类的无参数的构造方法。</li>
-<li>如果子类定义了构造方法，不论是无参数还是带参数，在创建子类的对象的时候,首先执行父类无参数的构造方法，然后执行自己的构造方法。</li>
-<li>在创建子类对象时候，如果子类的构造函数没有显示调用父类的构造函数，则会调用父类的默认无参构造函数。</li>
-<li>在创建子类对象时候，如果子类的构造函数没有显示调用父类的构造函数且父类自己提供了无参构造函数，则会调用父类自己的无参构造函数。</li>
-<li>在创建子类对象时候，如果子类的构造函数没有显示调用父类的构造函数且父类只定义了自己的有参构造函数，则会出错（如果父类只有有参数的构造方法，则子类必须显示调用此带参构造方法）。</li>
-<li>如果子类调用父类带参数的构造方法，需要用初始化父类成员对象的方式。</li>
-</ol>
+		<h3 id="原因1-从存储空间角度"><a href="#原因1-从存储空间角度" class="headerlink" title="原因1:从存储空间角度"></a>原因1:从存储空间角度</h3><p>这里你需要知道一个概念，那就是虚函数表vtbl，每一个拥有虚成员函数的类都有一个指向虚函数表的指针。对象通过虚函数表里存储的虚函数地址来调用虚函数。那虚函数表指针是什么时候初始化的呢？当然是构造函数。当我们通过new来创建一个对象的时候，第一步是申请需要的内存，第二步就是调用构造函数。试想，如果构造函数是虚函数，那必然需要通过vtbl来找到虚构造函数的入口地址，显然，我们申请的内存还没有做任何初始化，不可能有vtbl的。因此，构造函数不能是虚函数。</p>
+<h3 id="原因2：从使用角度"><a href="#原因2：从使用角度" class="headerlink" title="原因2：从使用角度"></a>原因2：从使用角度</h3><p>虚函数主要用于在信息不全的情况下，能使重载的函数得到对应的调用。构造函数本身就是要初始化实例，那使用虚函数也没有实际意义呀。所以构造函数没有必要是虚函数。虚函数的作用在于通过父类的指针或者引用来调用它的时候能够变成调用子类的那个成员函数。而构造函数是在创建对象时自动调用的，不可能通过父类的指针或者引用去调用，因此也就规定构造函数不能是虚函数。构造函数不需要是虚函数，也不允许是虚函数，因为创建一个对象时我们总是要明确指定对象的类型，尽管我们可能通过实验室的基类的指针或引用去访问它。但析构却不一定，我们往往通过基类的指针来销毁对象。这时候如果析构函数不是虚函数，就不能正确识别对象类型从而不能正确调用析构函数。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -113,7 +105,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://chensguo8099.github.io/post/C++继承构造原则/" data-title="C++继承构造原则 | 疯狂刷题" data-tsina="" class="share clearfix">
+  <div data-url="http://chensguo8099.github.io/post/C++构造函数为什么不能是虚函数/" data-title="C++构造函数为什么不能是虚函数 | 疯狂刷题" data-tsina="" class="share clearfix">
   </div>
 
 </div>
@@ -122,19 +114,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/post/C++虚继承中菱形继承/" title="C++虚继承中菱形继承">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  C++虚继承中菱形继承</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/post/一元多项式乘法与加法运算/"  title="一元多项式乘法与加法运算">
+<a href="/post/C++虚继承中菱形继承/"  title="C++虚继承中菱形继承">
  <strong>NEXT:</strong><br/> 
- <span>一元多项式乘法与加法运算
+ <span>C++虚继承中菱形继承
 </span>
 </a>
 </div>
