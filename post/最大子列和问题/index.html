@@ -77,12 +77,17 @@
     </p>
   <p class="article-time">
     <time datetime="2018-07-19T10:25:16.000Z" itemprop="datePublished">2018-07-19</time>
-    更新日期:<time datetime="2019-04-10T10:29:02.601Z" itemprop="dateModified">2019-04-10</time>
+    更新日期:<time datetime="2019-04-11T02:45:58.049Z" itemprop="dateModified">2019-04-11</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入格式"><span class="toc-number">2.</span> <span class="toc-text">输入格式:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出格式"><span class="toc-number">3.</span> <span class="toc-text">输出格式:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入样例"><span class="toc-number">4.</span> <span class="toc-text">输入样例:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出样例"><span class="toc-number">5.</span> <span class="toc-text">输出样例:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现代码"><span class="toc-number">6.</span> <span class="toc-text">实现代码:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#01-复杂度2-Maximum-Subsequence-Sum（25-分）"><span class="toc-number">7.</span> <span class="toc-text">01-复杂度2 Maximum Subsequence Sum（25 分）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input-Specification"><span class="toc-number">8.</span> <span class="toc-text">Input Specification:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output-Specification"><span class="toc-number">9.</span> <span class="toc-text">Output Specification:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">10.</span> <span class="toc-text">Sample Input:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">11.</span> <span class="toc-text">Sample Output:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现代码-1"><span class="toc-number">12.</span> <span class="toc-text">实现代码:</span></a></li></ol>
+		</div>
 		
 		<h3 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:</h3><p>给定K个整数组成的序列{H<sub>1</sub>，H<sub>2</sub>，…，H<sub>n</sub>},“连续子列”被定义为{N<sub>i</sub>，N<sub>i+1</sub>，…，N<sub>j</sub>}，其中 1≤i≤j≤K。“最大子列和”则被定义为所有连续子列元素的和中最大者。例如给定序列{ -2, 11, -4, 13, -5, -2 }，其连续子列{ 11, -4, 13 }有最大的和20。现要求编写程序，计算给定整数序列的最大子列和。</p>
 <h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h3><p>输入第1行给出正整数K (≤100000)；第2行给出K个整数，其间以空格分隔。</p>
@@ -161,6 +166,11 @@
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入格式"><span class="toc-number">2.</span> <span class="toc-text">输入格式:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出格式"><span class="toc-number">3.</span> <span class="toc-text">输出格式:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入样例"><span class="toc-number">4.</span> <span class="toc-text">输入样例:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出样例"><span class="toc-number">5.</span> <span class="toc-text">输出样例:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现代码"><span class="toc-number">6.</span> <span class="toc-text">实现代码:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#01-复杂度2-Maximum-Subsequence-Sum（25-分）"><span class="toc-number">7.</span> <span class="toc-text">01-复杂度2 Maximum Subsequence Sum（25 分）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input-Specification"><span class="toc-number">8.</span> <span class="toc-text">Input Specification:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output-Specification"><span class="toc-number">9.</span> <span class="toc-text">Output Specification:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">10.</span> <span class="toc-text">Sample Input:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">11.</span> <span class="toc-text">Sample Output:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现代码-1"><span class="toc-number">12.</span> <span class="toc-text">实现代码:</span></a></li></ol>
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -291,6 +301,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });

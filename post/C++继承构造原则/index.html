@@ -77,12 +77,17 @@
     </p>
   <p class="article-time">
     <time datetime="2019-04-10T11:10:43.000Z" itemprop="datePublished">2019-04-10</time>
-    更新日期:<time datetime="2019-04-10T11:51:53.170Z" itemprop="dateModified">2019-04-10</time>
+    更新日期:<time datetime="2019-04-11T02:44:19.996Z" itemprop="dateModified">2019-04-11</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+		</div>
 		
 		<p>构造方法用来初始化类的对象，与父类的其它成员不同，它不能被子类继承（子类可以继承父类所有的成员变量和成员方法，但不继承父类的构造方法）。因此，在创建子类对象时，为了初始化从父类继承来的数据成员，系统需要调用其父类的构造方法。如果没有显式的构造函数，编译器会给一个默认的构造函数，并且该默认的构造函数仅仅在没有显式地声明构造函数情况下创建。</p>
 <p>构造原则如下：</p>
@@ -148,6 +153,11 @@
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -278,6 +288,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });

@@ -77,12 +77,17 @@
     </p>
   <p class="article-time">
     <time datetime="2019-04-10T11:54:36.000Z" itemprop="datePublished">2019-04-10</time>
-    更新日期:<time datetime="2019-04-10T11:57:48.706Z" itemprop="dateModified">2019-04-10</time>
+    更新日期:<time datetime="2019-04-11T02:44:26.552Z" itemprop="dateModified">2019-04-11</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#原因1-从存储空间角度"><span class="toc-number">1.</span> <span class="toc-text">原因1:从存储空间角度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原因2：从使用角度"><span class="toc-number">2.</span> <span class="toc-text">原因2：从使用角度</span></a></li></ol>
+		</div>
 		
 		<h3 id="原因1-从存储空间角度"><a href="#原因1-从存储空间角度" class="headerlink" title="原因1:从存储空间角度"></a>原因1:从存储空间角度</h3><p>这里你需要知道一个概念，那就是虚函数表vtbl，每一个拥有虚成员函数的类都有一个指向虚函数表的指针。对象通过虚函数表里存储的虚函数地址来调用虚函数。那虚函数表指针是什么时候初始化的呢？当然是构造函数。当我们通过new来创建一个对象的时候，第一步是申请需要的内存，第二步就是调用构造函数。试想，如果构造函数是虚函数，那必然需要通过vtbl来找到虚构造函数的入口地址，显然，我们申请的内存还没有做任何初始化，不可能有vtbl的。因此，构造函数不能是虚函数。</p>
 <h3 id="原因2：从使用角度"><a href="#原因2：从使用角度" class="headerlink" title="原因2：从使用角度"></a>原因2：从使用角度</h3><p>虚函数主要用于在信息不全的情况下，能使重载的函数得到对应的调用。构造函数本身就是要初始化实例，那使用虚函数也没有实际意义呀。所以构造函数没有必要是虚函数。虚函数的作用在于通过父类的指针或者引用来调用它的时候能够变成调用子类的那个成员函数。而构造函数是在创建对象时自动调用的，不可能通过父类的指针或者引用去调用，因此也就规定构造函数不能是虚函数。构造函数不需要是虚函数，也不允许是虚函数，因为创建一个对象时我们总是要明确指定对象的类型，尽管我们可能通过实验室的基类的指针或引用去访问它。但析构却不一定，我们往往通过基类的指针来销毁对象。这时候如果析构函数不是虚函数，就不能正确识别对象类型从而不能正确调用析构函数。</p>
@@ -132,6 +137,11 @@
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#原因1-从存储空间角度"><span class="toc-number">1.</span> <span class="toc-text">原因1:从存储空间角度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原因2：从使用角度"><span class="toc-number">2.</span> <span class="toc-text">原因2：从使用角度</span></a></li></ol>
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -262,6 +272,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });

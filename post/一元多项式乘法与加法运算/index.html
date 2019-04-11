@@ -79,12 +79,17 @@
     </p>
   <p class="article-time">
     <time datetime="2018-07-25T10:58:46.000Z" itemprop="datePublished">2018-07-25</time>
-    更新日期:<time datetime="2019-04-10T10:29:02.597Z" itemprop="dateModified">2019-04-10</time>
+    更新日期:<time datetime="2019-04-11T02:45:41.597Z" itemprop="dateModified">2019-04-11</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性结构2-一元多项式的乘法与加法运算（20-分）"><span class="toc-number">1.</span> <span class="toc-text">线性结构2 一元多项式的乘法与加法运算（20 分）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输入格式"><span class="toc-number"></span> <span class="toc-text">输入格式:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输出格式"><span class="toc-number"></span> <span class="toc-text">输出格式:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输入样例"><span class="toc-number"></span> <span class="toc-text">输入样例:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输出样例"><span class="toc-number"></span> <span class="toc-text">输出样例:</span></a>
+		</div>
 		
 		<h2 id="线性结构2-一元多项式的乘法与加法运算（20-分）"><a href="#线性结构2-一元多项式的乘法与加法运算（20-分）" class="headerlink" title="线性结构2 一元多项式的乘法与加法运算（20 分）"></a>线性结构2 一元多项式的乘法与加法运算（20 分）</h2><p>设计函数分别求两个一元多项式的乘积与和。</p>
 <h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h1><p>输入分2行，每行分别先给出多项式非零项的个数，再以指数递降方式输入一个多项式非零项系数和指数（绝对值均为不超过1000的整数）。数字间以空格分隔。</p>
@@ -146,6 +151,11 @@
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性结构2-一元多项式的乘法与加法运算（20-分）"><span class="toc-number">1.</span> <span class="toc-text">线性结构2 一元多项式的乘法与加法运算（20 分）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输入格式"><span class="toc-number"></span> <span class="toc-text">输入格式:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输出格式"><span class="toc-number"></span> <span class="toc-text">输出格式:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输入样例"><span class="toc-number"></span> <span class="toc-text">输入样例:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输出样例"><span class="toc-number"></span> <span class="toc-text">输出样例:</span></a>
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -276,6 +286,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });

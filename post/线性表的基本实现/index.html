@@ -79,12 +79,17 @@
     </p>
   <p class="article-time">
     <time datetime="2018-07-21T12:27:40.000Z" itemprop="datePublished">2018-07-21</time>
-    更新日期:<time datetime="2019-04-10T10:29:02.601Z" itemprop="dateModified">2019-04-10</time>
+    更新日期:<time datetime="2019-04-11T02:45:01.340Z" itemprop="dateModified">2019-04-11</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#顺序存储："><span class="toc-number">1.</span> <span class="toc-text">顺序存储：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链式存储："><span class="toc-number">2.</span> <span class="toc-text">链式存储：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点："><span class="toc-number">3.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点："><span class="toc-number">4.</span> <span class="toc-text">缺点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序代码"><span class="toc-number">5.</span> <span class="toc-text">程序代码</span></a></li></ol>
+		</div>
 		
 		<p>线性表的顺序存储和链式存储方式在存读数据以及插入删除数据时，时间复杂度不同。顺序存储的典型例子为数组，链式存储的典型例子为单链表。众所周知，当读取数据较为频繁时，我们选择顺序存储方式，当插入和删除操作较为频繁时，我们选择链式存储方式。接下来，我们将分析这样做的原因：</p>
 <h3 id="顺序存储："><a href="#顺序存储：" class="headerlink" title="顺序存储："></a>顺序存储：</h3><ul>
@@ -170,6 +175,11 @@
 
 </div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#顺序存储："><span class="toc-number">1.</span> <span class="toc-text">顺序存储：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链式存储："><span class="toc-number">2.</span> <span class="toc-text">链式存储：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点："><span class="toc-number">3.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点："><span class="toc-number">4.</span> <span class="toc-text">缺点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序代码"><span class="toc-number">5.</span> <span class="toc-text">程序代码</span></a></li></ol>
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -300,6 +310,8 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
